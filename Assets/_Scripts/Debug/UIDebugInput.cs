@@ -18,10 +18,10 @@ public class UIDebugInput : MonoBehaviour
         var pad = Gamepad.current;
         if(pad != null)
         {
-            button_A.color = pad.aButton.isPressed ? pressedColor : Color.white;
-            button_B.color = pad.bButton.isPressed ? pressedColor : Color.white;
-            button_X.color = pad.xButton.isPressed ? pressedColor : Color.white;
-            button_Y.color = pad.yButton.isPressed ? pressedColor : Color.white;
+            button_A.color = pad.buttonSouth.isPressed ? pressedColor : Color.white;
+            button_B.color = pad.buttonEast.isPressed ? pressedColor : Color.white;
+            button_X.color = pad.buttonWest.isPressed ? pressedColor : Color.white;
+            button_Y.color = pad.buttonNorth.isPressed ? pressedColor : Color.white;
             button_Menu.color = pad.startButton.isPressed ? pressedColor : Color.white;
 
             Vector2 dpad = pad.dpad.ReadValue();
