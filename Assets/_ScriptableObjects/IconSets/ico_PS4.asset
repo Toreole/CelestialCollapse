@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6e7174a6bfa374fa93a51ae2787255, type: 3}
+  m_Name: ico_PS4
+  m_EditorClassIdentifier: 
+  northButton: {fileID: 510560401676033566, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  eastButton: {fileID: -7398214931257449593, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  southButton: {fileID: -7633161481409484237, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  westButton: {fileID: -6966665533206832834, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  startButton: {fileID: -2988626821069498702, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  backButton: {fileID: 7272802869870795365, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  rightStick: {fileID: -4475412037480243213, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  leftStick: {fileID: 8579084839374319768, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  rightTrigger: {fileID: 4088031611765581069, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  rightShoulder: {fileID: -1713371257303145117, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  leftTrigger: {fileID: -4604243313029698201, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  leftShoulder: {fileID: -6976822811975287488, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  dPadNeutral: {fileID: -3141527326278460697, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  dPadUp: {fileID: 603830988106624940, guid: 72bddda2dbef51246bca4b61f9db6897, type: 3}
+  dPadRight: {fileID: 6191201306743407954, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  dPadDown: {fileID: -3987297032475277832, guid: 72bddda2dbef51246bca4b61f9db6897,
+    type: 3}
+  dPadLeft: {fileID: 151595307022991034, guid: 72bddda2dbef51246bca4b61f9db6897, type: 3}

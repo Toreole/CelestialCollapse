@@ -1729,6 +1729,7 @@ MonoBehaviour:
   lStick: {fileID: 281429074}
   rStick: {fileID: 86366792}
   pressedColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  activeIcons: {fileID: 11400000, guid: 370343486fc2ab647b8de07cee720f22, type: 2}
 --- !u!1001 &999897708
 PrefabInstance:
   m_ObjectHideFlags: 0

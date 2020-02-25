@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6e7174a6bfa374fa93a51ae2787255, type: 3}
+  m_Name: ico_XBox360
+  m_EditorClassIdentifier: 
+  northButton: {fileID: 4109952203844857743, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  eastButton: {fileID: -2935151080971525210, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  southButton: {fileID: 678579954043525743, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  westButton: {fileID: 8464954696310914663, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  startButton: {fileID: 5543489405923815768, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  backButton: {fileID: -2954771146998911399, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  rightStick: {fileID: 4247348882822886234, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  leftStick: {fileID: 1879246534954936054, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  rightTrigger: {fileID: 403083629917819998, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  rightShoulder: {fileID: 7980498712001384882, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  leftTrigger: {fileID: 5350344024722783767, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  leftShoulder: {fileID: -3047004857050838696, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  dPadNeutral: {fileID: -509157132165202632, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  dPadUp: {fileID: -4527257521248134025, guid: 9ffdb11be6c5ea14da7b2593ba63e737, type: 3}
+  dPadRight: {fileID: -2397946353677090934, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  dPadDown: {fileID: 7488430086285455144, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}
+  dPadLeft: {fileID: -1444753927896152338, guid: 9ffdb11be6c5ea14da7b2593ba63e737,
+    type: 3}

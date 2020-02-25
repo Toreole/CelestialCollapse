@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-namespace Minesweeper
+namespace Celestial
 {
     //thanks to Wokarol for sharing the functionality of the toggles hehe.
     [InitializeOnLoad]
