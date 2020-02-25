@@ -1,55 +1,58 @@
 fileFormatVersion: 2
-guid: 6007eda212ffca04aa2b53187bec4bae
+guid: 255bc6c11b797c4449f288bc5ad1e5e4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9148080373945695581
-    second: spr_xbox_buttons_0
+      213: -1471979283512087932
+    second: spr_xboxOne_controller_icons_0
   - first:
-      213: 4194423777572528949
-    second: spr_xbox_buttons_1
+      213: 4643010647766649449
+    second: spr_xboxOne_controller_icons_1
   - first:
-      213: 6478814905969162784
-    second: spr_xbox_buttons_2
+      213: -425624505627303635
+    second: spr_xboxOne_controller_icons_2
   - first:
-      213: -4027136154181520144
-    second: spr_xbox_buttons_3
+      213: 1566397832793530290
+    second: spr_xboxOne_controller_icons_3
   - first:
-      213: 4516296719291935222
-    second: spr_xbox_buttons_4
+      213: 2307186606637246219
+    second: spr_xboxOne_controller_icons_4
   - first:
-      213: -3008609196275568660
-    second: spr_xbox_buttons_5
+      213: -1180280066143521179
+    second: spr_xboxOne_controller_icons_5
   - first:
-      213: 4098561491910611449
-    second: spr_xbox_buttons_6
+      213: 2090041197404814663
+    second: spr_xboxOne_controller_icons_6
   - first:
-      213: -1809517237260714643
-    second: spr_xbox_buttons_7
+      213: 8670517744899472773
+    second: spr_xboxOne_controller_icons_7
   - first:
-      213: -7655119148312649819
-    second: spr_xbox_buttons_8
+      213: -8327299227414782482
+    second: spr_xboxOne_controller_icons_8
   - first:
-      213: 3488525575780874969
-    second: spr_xbox_buttons_9
+      213: 5284303320395062932
+    second: spr_xboxOne_controller_icons_9
   - first:
-      213: -5254632367249781731
-    second: spr_xbox_buttons_10
+      213: -3947209134091592847
+    second: spr_xboxOne_controller_icons_10
   - first:
-      213: -2982858243175389644
-    second: spr_xbox_buttons_11
+      213: -4280777120990731971
+    second: spr_xboxOne_controller_icons_11
   - first:
-      213: -6558574967989986225
-    second: spr_xbox_buttons_12
+      213: 5703217689942308194
+    second: spr_xboxOne_controller_icons_12
   - first:
-      213: 600473367898363822
-    second: spr_xbox_buttons_13
+      213: 6182158086559004412
+    second: spr_xboxOne_controller_icons_13
   - first:
-      213: -6940624286641960952
-    second: spr_xbox_buttons_14
+      213: 3532101387006463823
+    second: spr_xboxOne_controller_icons_14
   - first:
-      213: -1086404924110290891
-    second: spr_xbox_buttons_15
+      213: -6409951856338077053
+    second: spr_xboxOne_controller_icons_15
+  - first:
+      213: 4455994591753205836
+    second: spr_xboxOne_controller_icons_16
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -170,326 +173,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_xbox_buttons_0
+      name: spr_xboxOne_controller_icons_0
       rect:
         serializedVersion: 2
         x: 9
-        y: 324
-        width: 87
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5d71c9a1a284fe70800000000000000
-      internalID: 9148080373945695581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_1
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 324
-        width: 87
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 533a9a3e336953a30800000000000000
-      internalID: 4194423777572528949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_2
-      rect:
-        serializedVersion: 2
-        x: 219
-        y: 324
-        width: 87
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02a3ccba4df59e950800000000000000
-      internalID: 6478814905969162784
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_3
-      rect:
-        serializedVersion: 2
-        x: 324
-        y: 324
-        width: 87
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f4b0e3210dbc18c0800000000000000
-      internalID: -4027136154181520144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_4
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 237
-        width: 93
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f968a510fb1dae30800000000000000
-      internalID: 4516296719291935222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_5
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 237
-        width: 93
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cef650450e54f36d0800000000000000
-      internalID: -3008609196275568660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_6
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 217
-        width: 85
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f15d6736f301e830800000000000000
-      internalID: 4098561491910611449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_7
-      rect:
-        serializedVersion: 2
-        x: 325
-        y: 217
-        width: 85
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6df022f8ad43e6e0800000000000000
-      internalID: -1809517237260714643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_8
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 110
-        width: 97
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5af988371bd83c590800000000000000
-      internalID: -7655119148312649819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_9
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 110
-        width: 97
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9dab846378bb96030800000000000000
-      internalID: 3488525575780874969
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_10
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 110
-        width: 97
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1c8ec4c3bbc317b0800000000000000
-      internalID: -5254632367249781731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_11
-      rect:
-        serializedVersion: 2
-        x: 318
-        y: 110
-        width: 97
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4366f205b32ca96d0800000000000000
-      internalID: -2982858243175389644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_12
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 4
-        width: 97
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4c1030c0d24bf4a0800000000000000
-      internalID: -6558574967989986225
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_13
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 6
-        width: 95
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea71aaeb85f455800800000000000000
-      internalID: 600473367898363822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_14
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 6
-        width: 95
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 808c14bfbf2fdaf90800000000000000
-      internalID: -6940624286641960952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_xbox_buttons_15
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 12
+        y: 421
         width: 82
         height: 82
       alignment: 0
@@ -499,8 +187,344 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 530cb204a705ce0f0800000000000000
-      internalID: -1086404924110290891
+      spriteID: 48a2789f3aa729be0800000000000000
+      internalID: -1471979283512087932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 422
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96acc7c95994f6040800000000000000
+      internalID: 4643010647766649449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 422
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21226664c0e71af0800000000000000
+      internalID: -425624505627303635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_3
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 424
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf9990a786fcb510800000000000000
+      internalID: 1566397832793530290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_4
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 427
+        width: 78
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07e627aef5c40020800000000000000
+      internalID: 2307186606637246219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_5
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 321
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5667a02888dce9fe0800000000000000
+      internalID: -1180280066143521179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_6
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 322
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74dfe314561510d10800000000000000
+      internalID: 2090041197404814663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_7
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 344
+        width: 78
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d347b53fdd35870800000000000000
+      internalID: 8670517744899472773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 267
+        width: 88
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed9e8bf87d7f6c80800000000000000
+      internalID: -8327299227414782482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_9
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 268
+        width: 88
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e90995fdd955940800000000000000
+      internalID: 5284303320395062932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_10
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 248
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b1b4ca432b839c0800000000000000
+      internalID: -3947209134091592847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_11
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 171
+        width: 80
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d316ab493ef9794c0800000000000000
+      internalID: -4280777120990731971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_12
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 172
+        width: 80
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2653cb5a546e52f40800000000000000
+      internalID: 5703217689942308194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_13
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 145
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf678a676007bc550800000000000000
+      internalID: 6182158086559004412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_14
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 143
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f4f236f7b840130800000000000000
+      internalID: 3532101387006463823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_15
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 143
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38afc9f7fb64b07a0800000000000000
+      internalID: -6409951856338077053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_xboxOne_controller_icons_16
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 41
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c48f28ae87fd6dd30800000000000000
+      internalID: 4455994591753205836
       vertices: []
       indices: 
       edges: []
@@ -508,7 +532,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 53d39f7d66223fe46b29aabb5f49aa43
+    spriteID: e1390effa8e8d4b4e806da5826cc243f
     internalID: 0
     vertices: []
     indices: 

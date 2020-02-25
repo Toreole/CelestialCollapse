@@ -11,11 +11,10 @@ public class PlayerMove : MonoBehaviour
     public float speed;
     public float sprintSpeed;
 
-    private InputAction moveAction;
-
+    public InputActionReference moveAction;
+    
     private void Start()
     {
-        moveAction = inputComponent.currentActionMap.FindAction("Move");
         foreach (InputAction action in inputComponent.currentActionMap.actions)
         {
             print($"----{action.name}----");
@@ -48,7 +47,7 @@ public class PlayerMove : MonoBehaviour
     {
         //print(inputComponent.currentControlScheme); //Keyboard&Mouse || Gamepad
 
-           Vector2 input = moveAction.ReadValue<Vector2>();
+        Vector2 input = moveAction.action.ReadValue<Vector2>();
         Vector3 move = new Vector3(input.x, 0, input.y);
         move *= speed;
         cc.SimpleMove(move);

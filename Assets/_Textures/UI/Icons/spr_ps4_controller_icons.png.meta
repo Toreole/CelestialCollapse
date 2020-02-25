@@ -1,0 +1,787 @@
+fileFormatVersion: 2
+guid: 72bddda2dbef51246bca4b61f9db6897
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7633161481409484237
+    second: spr_ps4_controller_icons_0
+  - first:
+      213: -7398214931257449593
+    second: spr_ps4_controller_icons_1
+  - first:
+      213: -6966665533206832834
+    second: spr_ps4_controller_icons_2
+  - first:
+      213: 510560401676033566
+    second: spr_ps4_controller_icons_3
+  - first:
+      213: 7272802869870795365
+    second: spr_ps4_controller_icons_4
+  - first:
+      213: 7132559892407815575
+    second: spr_ps4_controller_icons_5
+  - first:
+      213: -9170501852575648457
+    second: spr_ps4_controller_icons_6
+  - first:
+      213: 6755812008666556519
+    second: spr_ps4_controller_icons_7
+  - first:
+      213: 1667305193409083477
+    second: spr_ps4_controller_icons_8
+  - first:
+      213: 1665709404128529013
+    second: spr_ps4_controller_icons_9
+  - first:
+      213: 8579084839374319768
+    second: spr_ps4_controller_icons_10
+  - first:
+      213: -4475412037480243213
+    second: spr_ps4_controller_icons_11
+  - first:
+      213: -2988626821069498702
+    second: spr_ps4_controller_icons_12
+  - first:
+      213: -6976822811975287488
+    second: spr_ps4_controller_icons_13
+  - first:
+      213: -1713371257303145117
+    second: spr_ps4_controller_icons_14
+  - first:
+      213: 3236833554604497732
+    second: spr_ps4_controller_icons_15
+  - first:
+      213: -6471218192457424410
+    second: spr_ps4_controller_icons_16
+  - first:
+      213: 5550340309167489067
+    second: spr_ps4_controller_icons_17
+  - first:
+      213: -7699368002803004311
+    second: spr_ps4_controller_icons_18
+  - first:
+      213: -4864928334898279172
+    second: spr_ps4_controller_icons_19
+  - first:
+      213: -4604243313029698201
+    second: spr_ps4_controller_icons_20
+  - first:
+      213: 4088031611765581069
+    second: spr_ps4_controller_icons_21
+  - first:
+      213: 603830988106624940
+    second: spr_ps4_controller_icons_22
+  - first:
+      213: 151595307022991034
+    second: spr_ps4_controller_icons_23
+  - first:
+      213: -3141527326278460697
+    second: spr_ps4_controller_icons_24
+  - first:
+      213: 6191201306743407954
+    second: spr_ps4_controller_icons_25
+  - first:
+      213: -3987297032475277832
+    second: spr_ps4_controller_icons_26
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 2
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 421
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33aa46b2310911690800000000000000
+      internalID: -7633161481409484237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 423
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783a86aa7b2445990800000000000000
+      internalID: -7398214931257449593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 424
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e39df38cb9e615f90800000000000000
+      internalID: -6966665533206832834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_3
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 423
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ed742faffd51700800000000000000
+      internalID: 510560401676033566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_4
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 436
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a171c5daf2ee460800000000000000
+      internalID: 7272802869870795365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 417
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d8a26ae61fbf260800000000000000
+      internalID: 7132559892407815575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_6
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 418
+        width: 29
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735ba290725dbb080800000000000000
+      internalID: -9170501852575648457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_7
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 417
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76863e16a3771cd50800000000000000
+      internalID: 6755812008666556519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_8
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 418
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558ff495d35732710800000000000000
+      internalID: 1667305193409083477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_9
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 417
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57acb14b0e9cd1710800000000000000
+      internalID: 1665709404128529013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 328
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89078dc15380f0770800000000000000
+      internalID: 8579084839374319768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 328
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff9b72b67424e1c0800000000000000
+      internalID: -4475412037480243213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_12
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 340
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b692fb9db34686d0800000000000000
+      internalID: -2988626821069498702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_13
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 265
+        width: 82
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04dfe570e985d2f90800000000000000
+      internalID: -6976822811975287488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_14
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 263
+        width: 82
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365e4185be1e838e0800000000000000
+      internalID: -1713371257303145117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_15
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 317
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b144be7fa8bec20800000000000000
+      internalID: 3236833554604497732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_16
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 318
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1a786075d9136a0800000000000000
+      internalID: -6471218192457424410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_17
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 318
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20c57eaa15c60d40800000000000000
+      internalID: 5550340309167489067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_18
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 318
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c0bed2899562590800000000000000
+      internalID: -7699368002803004311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_19
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 318
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfcc7a4747d4c7cb0800000000000000
+      internalID: -4864928334898279172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_20
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 167
+        width: 74
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76da563e9117a10c0800000000000000
+      internalID: -4604243313029698201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_21
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 167
+        width: 74
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05ead1771b9bb830800000000000000
+      internalID: 4088031611765581069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_22
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 210
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafe77e951d316800800000000000000
+      internalID: 603830988106624940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_23
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 107
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abeb8b8e0239a1200800000000000000
+      internalID: 151595307022991034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_24
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 107
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea5df09a8d0764d0800000000000000
+      internalID: -3141527326278460697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_25
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 107
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255006d39c09be550800000000000000
+      internalID: 6191201306743407954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ps4_controller_icons_26
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 6
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f5875d79764aa8c0800000000000000
+      internalID: -3987297032475277832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 166d283d92ecfa54ba51ec7b1a70bbe9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
