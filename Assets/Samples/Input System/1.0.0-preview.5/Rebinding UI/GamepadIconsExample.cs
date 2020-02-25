@@ -1,5 +1,6 @@
 using System;
 using UnityEngine.UI;
+using Celestial;
 
 ////TODO: have updateBindingUIEvent receive a control path string, too (in addition to the device layout name)
 
@@ -13,8 +14,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
     /// </summary>
     public class GamepadIconsExample : MonoBehaviour
     {
-        public GamepadIcons xbox;
-        public GamepadIcons ps4;
+        public ControllerIconSet activeSet;
 
         protected void OnEnable()
         {
@@ -33,10 +33,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 return;
 
             var icon = default(Sprite);
-            if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "DualShockGamepad"))
-                icon = ps4.GetSprite(controlPath);
-            else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Gamepad"))
-                icon = xbox.GetSprite(controlPath);
+            icon = activeSet.GetSprite(controlPath);
 
             var textComponent = component.bindingText;
 
