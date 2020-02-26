@@ -256,6 +256,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false)
         {
+            action.Disable();
             m_RebindOperation?.Cancel(); // Will null out m_RebindOperation.
 
             void CleanUp()
@@ -289,7 +290,11 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                             var nextBindingIndex = bindingIndex + 1;
                             if (nextBindingIndex < action.bindings.Count && action.bindings[nextBindingIndex].isPartOfComposite)
                                 PerformInteractiveRebind(action, nextBindingIndex, true);
+                            else if (nextBindingIndex >= action.bindings.Count)
+                                action.Enable();
                         }
+                        else
+                            action.Enable();
                     });
 
             // If it's a part binding, show the name of the part in the UI.
