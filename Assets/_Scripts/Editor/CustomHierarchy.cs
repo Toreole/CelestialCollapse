@@ -35,7 +35,7 @@ namespace Celestial
                     boxRect.y -= 1;
 
                     GUI.color = darkGrey;
-                    GUI.Box(boxRect, go.name.Substring(2));
+                    GUI.Box(boxRect, ""); //go.name.Substring(2)
                 }
                 GUI.color = oldCol;
 
