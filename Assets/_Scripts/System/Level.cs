@@ -18,10 +18,16 @@ namespace Celestial
         //public props.
         public float EnemyHealthMod => enemyHealthMod;
 
+        private void Awake()
+        {
+            current = this;
+        }
+
         public void AddModifier(LevelModifier mod)
         {
             activeModifiers.Add(mod);
             enemyHealthMod *= mod.enemyHealth; //multiplicative.
+            OnModifierChanged?.Invoke(this);
         }
 
     }
