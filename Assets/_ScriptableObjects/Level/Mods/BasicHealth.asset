@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: BasicHealth
   m_EditorClassIdentifier: 
   enemyHealth: 1.4
+  descriptor: 'BLa bla bla
+
+    blablablabal
+
+    bababl ablabla ablba'

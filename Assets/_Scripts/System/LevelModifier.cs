@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using NaughtyAttributes;
 
 namespace Celestial
 {
@@ -7,5 +8,7 @@ namespace Celestial
     {
         [Min(1)]
         public float enemyHealth;
+        [ResizableTextArea]
+        public string descriptor;
     }
 }
