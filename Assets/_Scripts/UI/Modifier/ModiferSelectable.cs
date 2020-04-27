@@ -12,6 +12,13 @@ namespace Celestial.UI
         [SerializeField]
         protected LevelModifier modifier;
 
+        private IEnumerator mouseRoutine;
+
+        protected override void Start()
+        {
+            mouseRoutine = UpdateTooltip();
+        }
+
         public override void OnDeselect(BaseEventData eventData)
         {
             UITooltip.Hide();
@@ -22,6 +29,26 @@ namespace Celestial.UI
         {
             UITooltip.Show(modifier.descriptor, transform.position);
             base.OnSelect(eventData);
+        }
+
+        public override void OnPointerEnter(PointerEventData eventData)
+        {
+            UITooltip.Show(modifier.descriptor, transform.position);
+            StartCoroutine(mouseRoutine);
+        }
+        public override void OnPointerExit(PointerEventData eventData)
+        {
+            StopCoroutine(mouseRoutine);
+            UITooltip.Hide();
+        }
+
+        IEnumerator UpdateTooltip()
+        {
+            for(; ; )
+            {
+                UITooltip.UpdatePosition();
+                yield return null;
+            }
         }
     }
 }
