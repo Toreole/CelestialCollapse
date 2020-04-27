@@ -10,12 +10,13 @@ namespace Celestial.UI
     public class UITooltip : MonoBehaviour
     {
         private static UITooltip _instance;
+        readonly Vector2 farAway = new Vector2(5000, 5000);
 
         [SerializeField, Tooltip("the text area")]
         private TextMeshProUGUI content;
 
         UnityEngine.UI.VerticalLayoutGroup layoutGroup;
-        GameObject contentChild;
+        RectTransform self;
 
         //set up the tooltip object.
         private void Awake()
@@ -24,8 +25,8 @@ namespace Celestial.UI
                 _instance = this;
             else
                 Destroy(this.gameObject);
-            contentChild = transform.GetChild(0).gameObject;
-            contentChild.SetActive(false);
+            self = transform as RectTransform;
+            self.anchoredPosition = farAway;
             layoutGroup = GetComponent<UnityEngine.UI.VerticalLayoutGroup>();
         }
 
@@ -33,9 +34,16 @@ namespace Celestial.UI
         private void _Show(string text, Vector3 position)
         {
             content.text = text;
-            transform.position = position;
-            contentChild.SetActive(true);
-            SetRealPosition(position);
+            //transform.position = position;
+            //set the real position on the next frame, after the size of the UI elements have refreshed.
+            StartCoroutine(SetPositionLater(position));
+        }
+        
+        IEnumerator SetPositionLater(Vector3 origin)
+        {
+            yield return null;
+            transform.position = origin;
+            SetRealPosition(origin);
         }
 
         /// <summary>
@@ -74,7 +82,7 @@ namespace Celestial.UI
         public static void Hide() => _instance._Hide();
         private void _Hide()
         {
-            contentChild.SetActive(false);
+            self.anchoredPosition = farAway;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Celestial.UI
             mouseRoutine = UpdateTooltip();
         }
 
+        //TODO: selection based tooltip only for gamepad based input
         public override void OnDeselect(BaseEventData eventData)
         {
             UITooltip.Hide();
@@ -31,6 +32,7 @@ namespace Celestial.UI
             base.OnSelect(eventData);
         }
 
+        //TODO: Pointer stuff only when Mouse&Keyboard is used.
         public override void OnPointerEnter(PointerEventData eventData)
         {
             UITooltip.Show(modifier.descriptor, transform.position);
