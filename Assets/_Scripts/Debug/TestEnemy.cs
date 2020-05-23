@@ -18,7 +18,6 @@ namespace Celestial.Debugging
                 UpdateHealthUI();
             }
         }
-
         private float maxHealth;
         private float currentHealth;
 

@@ -22,10 +22,12 @@ namespace Celestial
         protected float baseMaxHealth;
         [SerializeField]
         protected NavMeshAgent agent;
+        [SerializeField]
+        protected bool broadcastAggro;
 
         protected float currentHealth, maxHealth;
         protected PlayerMove player;
-
+        
         public float CurrentHealth
         {
             get => currentHealth;
@@ -49,6 +51,14 @@ namespace Celestial
         {
             maxHealth = baseMaxHealth;
             currentHealth = maxHealth;
+        }
+
+        private void OnDrawGizmos()
+        {
+            foreach(Vector3 point in agent.path.corners)
+            {
+                Gizmos.DrawSphere(point, 0.1f);
+            }
         }
 
         private void OnEnable()
@@ -75,8 +85,21 @@ namespace Celestial
         {
             if(other.CompareTag("Player"))
             {
-                Destination = other.transform;
                 //get player.
+                if(broadcastAggro && !Destination)
+                {
+                    //broadcast aggro to all other enemies in range.
+                    foreach(var col in Physics.OverlapSphere(transform.position, detectionRadius))
+                    {
+                        var en = col.GetComponent<BasicEnemy>();
+                        if (en)
+                        {
+                            print("bro");
+                            en.Destination = other.transform;
+                        }
+                    }
+                }
+                Destination = other.transform;
             }
         }
 
@@ -105,8 +128,18 @@ namespace Celestial
         public void Damage(float amount)
         {
             CurrentHealth -= amount;
+            //TODO: yikes.
+            if(CurrentHealth <= 0)
+            {
+                agent.gameObject.SetActive(false);
+            }
             print("ouch");
             //UpdateHealthUI();
+        }
+
+        public void KnockBack(float distance)
+        {
+            //TODO: all of this.
         }
     }
 }
