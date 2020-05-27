@@ -34,7 +34,11 @@ namespace Celestial
 
             Vector2 input = moveAction.action.ReadValue<Vector2>();
             Vector3 move = new Vector3(input.x, 0, input.y);
-            move *= speed;
+            if (move != Vector3.zero)
+            {
+                transform.forward = move.normalized;
+            }
+                move *= speed;
             cc.SimpleMove(move);
         }
         
