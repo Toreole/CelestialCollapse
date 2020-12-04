@@ -88,6 +88,13 @@ namespace Celestial.Levels
             }
             //Step 2: branch off from the main path.
             int lastMainPathTile = tiles.Count-1;
+            for(int i = 0; i <= lastMainPathTile; i++)
+            {
+                //2.1: check if we should start adding rooms here
+                //2.2: check whether the direction doesnt already have a room.
+                    //2.2.1 add a room to the room?
+                //2.3: check for other neighbours that already exist => chance to connect them all together.
+            }
         }
 
         ///<summary>Take a step in either X or Z, directly towards the boss room.</summary>
