@@ -8236,7 +8236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1364297049}
-  angle: 40
+  angle: -40
   distance: 10
 --- !u!20 &1687258584
 Camera:
