@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPathLength: 9
-  seed: 15
+  seed: 11
 --- !u!4 &240440417
 Transform:
   m_ObjectHideFlags: 0
