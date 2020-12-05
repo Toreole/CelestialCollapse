@@ -10,7 +10,37 @@ namespace Celestial.Levels
         public TileFlags flags;
         public GameObject instance;
         //just for convenience
-        public List<TileConnection> connections;
+        private List<TileConnection> connections = new List<TileConnection>();
+
+        private Cardinals connectionCardinals;
+        
+        public int ConnectionCount => connections.Count;
+    
+        public Cardinals RequiresWalls {get; set;} = Cardinals.Undefined;
+        public Cardinals ConnectionCardinals
+        {
+            get => connectionCardinals;
+            set => connectionCardinals = value;
+        }
+
+        public void AddConnection(TileConnection con)
+        {
+            connections.Add(con);
+            Vector3Int dir = con.other.gridPosition - this.gridPosition;
+            if(dir.x > 0)
+                connectionCardinals |= Cardinals.East;
+            else if(dir.x < 0)
+                connectionCardinals |= Cardinals.West;
+            else if(dir.z > 0)
+                connectionCardinals |= Cardinals.North;
+            else if(dir.z < 0)
+                connectionCardinals |= Cardinals.South;
+        }
+
+        public bool HasConnectionTo(GridTile other)
+            => connections.Exists(x => x.other == other);
+        public bool HasConnectionAtLocation(Vector3Int position)
+            => connections.Exists(x => x.other.gridPosition == position);
     }
 
     public class TileConnection

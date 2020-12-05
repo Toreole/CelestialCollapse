@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 using Random = System.Random;
+using Debug = UnityEngine.Debug;
+
+using static Celestial.Levels.Util;
 
 namespace Celestial.Levels
 {
@@ -13,6 +17,8 @@ namespace Celestial.Levels
         [SerializeField]
         int seed = 666;
         //TODO: need a tileset of some sort.
+        [SerializeField]
+        TileSet tileSet;
 #endregion
 
 #region Runtime_Generation
@@ -29,6 +35,7 @@ namespace Celestial.Levels
         {
             InitializeGeneration();
             GenerateLevelLayout();
+            //PlaceLevel();
         }
 
         ///<summary>Initialize parameters for the actual generation of the level.</summary>
@@ -49,16 +56,14 @@ namespace Celestial.Levels
             {
                 gridPosition = Vector3Int.zero,
                 flags = TileFlags.Entrance,
-                instance = null,
-                connections = new List<TileConnection>()
+                instance = null
             };
             //the last tile in the floor.
             GridTile lastTile = new GridTile()
             {
                 gridPosition = bossRoomOffset,
                 flags = TileFlags.BossRoom,
-                instance = null,
-                connections = new List<TileConnection>()
+                instance = null
             };
             //Add both to the level
             tiles.Add(startTile);
@@ -71,7 +76,9 @@ namespace Celestial.Levels
         ///<summary>Generates the level layout based on the intialized tiles list.</summary>
         private void GenerateLevelLayout()
         {
-            //TODO: this.
+            //temp stat
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             Vector3Int stepsTaken = Vector3Int.zero;
             Vector3Int currentPosition = Vector3Int.zero;
             //Step 1: Make a path between the start and the end.
@@ -85,16 +92,13 @@ namespace Celestial.Levels
                 bool walksInX = canStepX && canStepZ && rng.Next(2)>0 || canStepX && !canStepZ;
                 TakeStep(walksInX, ref stepsTaken, ref currentPosition);
             }
-#region DEBUG_ONLY
-            //THIS IS FOR DEBUGGING ONLY!
-            foreach(var tile in tiles)
+            //INBETWEEN: make sure the boss room is connected!
             {
-                Transform t = GameObject.CreatePrimitive(PrimitiveType.Cube).transform;
-                t.position = tile.gridPosition*2;
-                t.localScale = tile.flags.HasFlag(TileFlags.Entrance) || tile.flags.HasFlag(TileFlags.BossRoom) ? new Vector3(2, 2, 2): Vector3.one; 
-                tile.instance = t.gameObject;
+                GridTile bossRoom = tiles[1];
+                GridTile lastPath = tiles[tiles.Count-1];
+                bossRoom.AddConnection(new TileConnection(lastPath));
+                lastPath.AddConnection(new TileConnection(bossRoom));
             }
-#endregion
             //Step 2: branch off from the main path.
             int lastMainPathTile = tiles.Count-1;
             for(int i = 0; i <= lastMainPathTile; i++)
@@ -106,31 +110,37 @@ namespace Celestial.Levels
                 if(rng.Next(2)>0) //50%chance to add a room onto the current one.
                     AddBranchTile(currentTile);
             }
-
-#region DEBUG_ONLY
-            foreach(GridTile tile in tiles)
-                foreach(TileConnection connection in tile.connections)
+            //readonly:
+            Cardinals[] cards = {Cardinals.North, Cardinals.East, Cardinals.South, Cardinals.West};
+            //Step 3: mark required walls! (rooms next to each other without connection)
+            foreach(GridTile gridTile in tiles)
+            {
+                foreach(Cardinals cardinal in cards)
                 {
-                    Transform t = GameObject.CreatePrimitive(PrimitiveType.Sphere).transform;
-                    t.position = ((Vector3)(tile.gridPosition*2 + connection.other.gridPosition*2))*0.5f;
-                    t.localScale = Vector3.one * 0.45f;
+                    Vector3Int otherPos = gridTile.gridPosition + cardinal.GetDirection();
+                    //if the tile exists, but we dont have a connection to it
+                    if(tiles.Exists(x => x.gridPosition == otherPos) && !gridTile.HasConnectionAtLocation(otherPos))
+                        gridTile.RequiresWalls |= cardinal;
                 }
-#endregion
+            }
+            stopwatch.Stop();
+            Debug.Log($"Finished generating the layout in {stopwatch.ElapsedMilliseconds}ms");
         }
 
+        ///<summary>Adds a branch tile to the current one. </summary>
         private void AddBranchTile(GridTile currentTile)
         {
             //2.2: check for a direction add a room in.
             List<Vector3Int> directions = new List<Vector3Int>(); //list of available directions that have not been occupied yet.
             //this may not be nice looking or good code, but it works and is reasonably fast.
-            if(!currentTile.connections.Exists(x => x.other.gridPosition == currentTile.gridPosition + Vector3Int.right)) 
+            if(!currentTile.HasConnectionAtLocation(currentTile.gridPosition + Vector3Int.right)) 
                 directions.Add(Vector3Int.right);
-            if(!currentTile.connections.Exists(x => x.other.gridPosition == currentTile.gridPosition + Vector3Int.left))
+            if(!currentTile.HasConnectionAtLocation(currentTile.gridPosition + Vector3Int.left))
                 directions.Add(Vector3Int.left);
-            if(!currentTile.connections.Exists(x => x.other.gridPosition == currentTile.gridPosition + new Vector3Int(0,0,1)))
-                directions.Add(new Vector3Int(0,0,1));
-            if(!currentTile.connections.Exists(x => x.other.gridPosition == currentTile.gridPosition + new Vector3Int(0,0,-1)))
-                directions.Add(new Vector3Int(0,0,-1));
+            if(!currentTile.HasConnectionAtLocation(currentTile.gridPosition + Vector3IntForward))
+                directions.Add(Vector3IntForward);
+            if(!currentTile.HasConnectionAtLocation(currentTile.gridPosition + Vector3IntBack))
+                directions.Add(Vector3IntBack);
             //Is there a free direction we can add something to?
             if(directions.Count > 0)
             {
@@ -139,18 +149,12 @@ namespace Celestial.Levels
                 GridTile newTile = new GridTile()
                 {
                     gridPosition = currentTile.gridPosition + direction,
+                    //TODO: this does not guarantee a shop to exist in the level!
                     flags = (roomsNotGenerated.HasFlag(TileFlags.Shop) && rng.Next(2)>0)? TileFlags.Shop : TileFlags.Standard,
-                    instance = null,
-                    connections = new List<TileConnection>()
+                    instance = null
                 };
-                newTile.connections.Add(new TileConnection(currentTile));
-                currentTile.connections.Add(new TileConnection(newTile));
-#region DEBUG_ONLY
-                Transform t = GameObject.CreatePrimitive(PrimitiveType.Cube).transform;
-                t.position = newTile.gridPosition * 2;
-                t.localScale = Vector3.one * 0.5f;
-                newTile.instance = t.gameObject;
-#endregion
+                newTile.AddConnection(new TileConnection(currentTile));
+                currentTile.AddConnection(new TileConnection(newTile));
                 //add the newly generated tile to the list.
                 tiles.Add(newTile);
                 //2.3: check for other neighbours that already exist => chance to connect them all together.
@@ -162,8 +166,8 @@ namespace Celestial.Levels
         {
             AttemptConnectionInDirection(tile, Vector3Int.right);
             AttemptConnectionInDirection(tile, Vector3Int.left);
-            AttemptConnectionInDirection(tile, new Vector3Int(0,0,1));
-            AttemptConnectionInDirection(tile, new Vector3Int(0,0,-1));
+            AttemptConnectionInDirection(tile, Vector3IntForward);
+            AttemptConnectionInDirection(tile, Vector3IntBack);
         }
 
         private void AttemptConnectionInDirection(GridTile tile, Vector3Int direction)
@@ -171,10 +175,10 @@ namespace Celestial.Levels
             Vector3Int position = tile.gridPosition + direction;
             GridTile otherTile = tiles.Find(x => x.gridPosition == position);
             //other must exist, and not be connected already.
-            if(otherTile != null && !tile.connections.Exists(x => x.other == otherTile) && connectionRng.Next(2) > 0)
+            if(otherTile != null && !tile.HasConnectionTo(otherTile) && connectionRng.Next(2) > 0)
             {
-                tile.connections.Add(new TileConnection(otherTile));
-                otherTile.connections.Add(new TileConnection(tile));
+                tile.AddConnection(new TileConnection(otherTile));
+                otherTile.AddConnection(new TileConnection(tile));
             }
         }
 
@@ -182,7 +186,7 @@ namespace Celestial.Levels
         private void TakeStep(bool inXDirection, ref Vector3Int steps, ref Vector3Int position)
         {
             Vector3Int oldPosition = position;
-            Vector3Int lateral = inXDirection? Vector3Int.right : new Vector3Int(0, 0, 1); //Why is there no .forward???
+            Vector3Int lateral = inXDirection? Vector3Int.right : Vector3IntForward;
             steps += lateral;
             //the actual world direction we are going in.
             Vector3Int direction = inXDirection? (position.x < bossRoomOffset.x? lateral: -lateral)
@@ -193,15 +197,44 @@ namespace Celestial.Levels
             {
                 gridPosition = position,
                 flags = TileFlags.Standard, //for now, every tile is a normal tile, idc.
-                instance = null,
-                connections = new List<TileConnection>()
+                instance = null
             };
             //add the connections.
             GridTile oldTile = tiles.Find(x => x.gridPosition == oldPosition);
-            tile.connections.Add(new TileConnection(oldTile));
-            oldTile.connections.Add(new TileConnection(tile));
+            tile.AddConnection(new TileConnection(oldTile));
+            oldTile.AddConnection(new TileConnection(tile));
             //add the tile to the list of all tiles.
             tiles.Add(tile);
+        }
+    
+        ///<summary>Place the parts of the level in the scene.</summary>
+        private void PlaceLevel()
+        {
+            List<Tile> twoEntrances = tileSet.GetTilesWith(x=>x.entranceCount == 2); //straights and corners
+            List<Tile> threeEntrances = tileSet.GetTilesWith(x=>x.entranceCount==3); // T-crossings
+            List<Tile> fourEntrances = tileSet.GetTilesWith(x=>x.entranceCount==4); // +
+
+            foreach(GridTile gridTile in tiles)
+            {
+                TileFlags flags = gridTile.flags;
+                if(flags.HasFlag(TileFlags.BossRoom))
+                {
+                    
+                }
+                else if(flags.HasFlag(TileFlags.Entrance))
+                {
+                    //1. get possible tiles for the entrance.
+                    tileSet.GetEntranceTiles().FindAll(x => x.entranceCount >= gridTile.ConnectionCount);
+                }
+                else if(flags.HasFlag(TileFlags.Shop))
+                {
+
+                }
+                else
+                {
+                    
+                }
+            }
         }
     }
 }
