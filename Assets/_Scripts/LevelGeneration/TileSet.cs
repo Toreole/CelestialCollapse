@@ -23,7 +23,7 @@ namespace Celestial.Levels
         [SerializeField]
         GameObject[] shopTiles;
         [SerializeField, Tooltip("Tiles with 1 connection, but no room.")]
-        GameObject[] deadEndTiles;
+        Tile[] deadEndTiles;
 
         ///<summary>The width/length of all tiles in this set given in units</summary>
         public float TileSize => tileSize;
@@ -39,10 +39,11 @@ namespace Celestial.Levels
             => shopTiles[rngProvider.Next(shopTiles.Length)];
         public List<Tile> GetEntranceTiles()
             => entranceTiles;
-        public GameObject GetDeadEnd(Random rngProvider)
+        public Tile GetDeadEnd(Random rngProvider)
             => deadEndTiles[rngProvider.Next(deadEndTiles.Length)];
     }
 
+    [Serializable]
     public class Tile
     {
         public GameObject tileMeshPrefab;
@@ -55,20 +56,20 @@ namespace Celestial.Levels
             return new Tile()
             {
                 tileMeshPrefab = source,
-                entranceCount = 0,
-                entrancesOnSides = Cardinals.Undefined
+                entranceCount = 1,
+                entrancesOnSides = Cardinals.South
             };
         }
     }
 
-    [Flags]
+    [Flags, Serializable]
     ///<summary>
     /// North = +z | East = +x
     /// South = -z | West = -x
     ///</summary>
     public enum Cardinals
     {
-        Undefined = 0,
+        Undefined = 16,
         ///<summary>North = +z </summary>
         North = 1, 
         ///<summary>East = +x </summary>

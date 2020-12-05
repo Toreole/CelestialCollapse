@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013af8cc39997f3479eca0bcf4236c84, type: 3}
+  m_Name: DebugTileSet
+  m_EditorClassIdentifier: 
+  tileSize: 3
+  standardTiles:
+  - tileMeshPrefab: {fileID: 326764470967544642, guid: 0ad22062fe8be3e469022d2378615ca4,
+      type: 3}
+    entranceCount: 2
+    entrancesOnSides: 12
+  - tileMeshPrefab: {fileID: 818749409196380825, guid: 00ff65444f91fc44fb79c24af28b7a69,
+      type: 3}
+    entranceCount: 2
+    entrancesOnSides: 12
+  - tileMeshPrefab: {fileID: 6768981303065093012, guid: c5186116e1e18634b8d38cf1efb328e8,
+      type: 3}
+    entranceCount: 4
+    entrancesOnSides: -1
+  - tileMeshPrefab: {fileID: 1970053029297598137, guid: 1f5a7f810fd2a5a428eed5e38bd2728f,
+      type: 3}
+    entranceCount: 4
+    entrancesOnSides: -1
+  - tileMeshPrefab: {fileID: 430986345921737298, guid: d8455532d38508f45989a6c17bbd41ef,
+      type: 3}
+    entranceCount: 1
+    entrancesOnSides: 4
+  - tileMeshPrefab: {fileID: 8611124880578575733, guid: 359e3dbeef5126949907e4c300c9e010,
+      type: 3}
+    entranceCount: 1
+    entrancesOnSides: 4
+  - tileMeshPrefab: {fileID: 2743635080110998894, guid: f77b7bc154cf8c146b889e5a3859c93b,
+      type: 3}
+    entranceCount: 2
+    entrancesOnSides: 5
+  - tileMeshPrefab: {fileID: 6868295002458874479, guid: 78111ab0ec0d0024b8bc2223902c6a31,
+      type: 3}
+    entranceCount: 2
+    entrancesOnSides: 5
+  - tileMeshPrefab: {fileID: 3561416580272844919, guid: 50dcccc55047d424e98fade0724da848,
+      type: 3}
+    entranceCount: 3
+    entrancesOnSides: 14
+  - tileMeshPrefab: {fileID: 2255232355241890832, guid: 20bd7e06687a0404ab2539c3b146d84e,
+      type: 3}
+    entranceCount: 3
+    entrancesOnSides: 14
+  bossTiles:
+  - {fileID: 430986345921737298, guid: d8455532d38508f45989a6c17bbd41ef, type: 3}
+  entranceTiles:
+  - tileMeshPrefab: {fileID: 326764470967544642, guid: 0ad22062fe8be3e469022d2378615ca4,
+      type: 3}
+    entranceCount: 2
+    entrancesOnSides: 12
+  - tileMeshPrefab: {fileID: 6768981303065093012, guid: c5186116e1e18634b8d38cf1efb328e8,
+      type: 3}
+    entranceCount: 4
+    entrancesOnSides: -1
+  - tileMeshPrefab: {fileID: 430986345921737298, guid: d8455532d38508f45989a6c17bbd41ef,
+      type: 3}
+    entranceCount: 1
+    entrancesOnSides: 4
+  - tileMeshPrefab: {fileID: 2743635080110998894, guid: f77b7bc154cf8c146b889e5a3859c93b,
+      type: 3}
+    entranceCount: 2
+    entrancesOnSides: 5
+  - tileMeshPrefab: {fileID: 3561416580272844919, guid: 50dcccc55047d424e98fade0724da848,
+      type: 3}
+    entranceCount: 3
+    entrancesOnSides: 14
+  shopTiles: []
+  deadEndTiles:
+  - tileMeshPrefab: {fileID: 7472697002452765217, guid: 9f326cea1d422a743ad89d7fcecfcf77,
+      type: 3}
+    entranceCount: 1
+    entrancesOnSides: 4
+  - tileMeshPrefab: {fileID: 4663890821152562431, guid: 886e225910dad804d951426e493acc49,
+      type: 3}
+    entranceCount: 1
+    entrancesOnSides: 4

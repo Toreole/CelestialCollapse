@@ -31,11 +31,16 @@ namespace Celestial.Levels
         Random connectionRng;
 #endregion
 
+        //Helper:
+        
+        //readonly:
+        static readonly Cardinals[] singleCardinals = {Cardinals.North, Cardinals.East, Cardinals.South, Cardinals.West};
+
         private void Start() 
         {
             InitializeGeneration();
             GenerateLevelLayout();
-            //PlaceLevel();
+            PlaceLevel();
         }
 
         ///<summary>Initialize parameters for the actual generation of the level.</summary>
@@ -110,12 +115,10 @@ namespace Celestial.Levels
                 if(rng.Next(2)>0) //50%chance to add a room onto the current one.
                     AddBranchTile(currentTile);
             }
-            //readonly:
-            Cardinals[] cards = {Cardinals.North, Cardinals.East, Cardinals.South, Cardinals.West};
             //Step 3: mark required walls! (rooms next to each other without connection)
             foreach(GridTile gridTile in tiles)
             {
-                foreach(Cardinals cardinal in cards)
+                foreach(Cardinals cardinal in singleCardinals)
                 {
                     Vector3Int otherPos = gridTile.gridPosition + cardinal.GetDirection();
                     //if the tile exists, but we dont have a connection to it
@@ -210,29 +213,116 @@ namespace Celestial.Levels
         ///<summary>Place the parts of the level in the scene.</summary>
         private void PlaceLevel()
         {
-            List<Tile> twoEntrances = tileSet.GetTilesWith(x=>x.entranceCount == 2); //straights and corners
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            List<Tile> oneEntrance = tileSet.GetTilesWith(x=>x.entranceCount == 1);
+            List<Tile> straights = tileSet.GetTilesWith(x=>x.entranceCount == 2 && x.entrancesOnSides == (Cardinals.West|Cardinals.East) 
+                                                                                || x.entrancesOnSides == (Cardinals.North|Cardinals.South));
+            //logically all tiles with two entrances that arent included in the straights are corners.
+            List<Tile> corners = tileSet.GetTilesWith(x=>x.entranceCount == 2 && straights.IndexOf(x) < 0); // index == -1 means that the tile does not exist within the list.
             List<Tile> threeEntrances = tileSet.GetTilesWith(x=>x.entranceCount==3); // T-crossings
             List<Tile> fourEntrances = tileSet.GetTilesWith(x=>x.entranceCount==4); // +
 
             foreach(GridTile gridTile in tiles)
             {
                 TileFlags flags = gridTile.flags;
+                int maxEntrances = 4;
+                foreach(var cardinal in singleCardinals) //unfortunately we cant use Bitoperations in this subset of c#
+                    if(gridTile.RequiresWalls.HasFlag(cardinal))
+                        maxEntrances--;
+
                 if(flags.HasFlag(TileFlags.BossRoom))
                 {
-                    
+                    //Boss rooms always only have one entrance, so we can immediately get a room to spawn.
+                    SpawnInstanceTile(gridTile, tileSet.GetBossTile(rng)); //!!!GameObject is implicitly cast to Tile!!!
                 }
-                else if(flags.HasFlag(TileFlags.Entrance))
+                else if(flags.HasFlag(TileFlags.Entrance))//Entrance can vary a lot.
                 {
                     //1. get possible tiles for the entrance.
-                    tileSet.GetEntranceTiles().FindAll(x => x.entranceCount >= gridTile.ConnectionCount);
+                    List<Tile> possibleEntrances = tileSet.GetEntranceTiles().FindAll(x => x.entranceCount >= gridTile.ConnectionCount && x.entranceCount <= maxEntrances);
+                    //gridTile.ConnectionCardinals
+                    Tile spawnTile = possibleEntrances[0]; //-----------rng.Next(possibleEntrances.Count)
+                    SpawnInstanceTile(gridTile, spawnTile);
                 }
                 else if(flags.HasFlag(TileFlags.Shop))
                 {
-
+                    //TODO:
                 }
-                else
+                else //Standard tiles have a lot of things to take care of!
                 {
-                    
+                    Tile tileToSpawn = null;
+                    //room style is how many "entrances" the room has. this can be more than the required amount of connection
+                    //but has to be less or equal to the max amount of entrances, as to not conflict with required walls.
+                    int roomStyle = rng.Next(gridTile.ConnectionCount, maxEntrances+1); //+1 since its exclusive max.
+                    switch(roomStyle)
+                    {
+                        case 1: 
+                            tileToSpawn = oneEntrance[rng.Next(oneEntrance.Count)];
+                            break;
+                        case 2: //2 entrances is ambiguous on its own, we need to differentiate between the types.
+                            tileToSpawn = gridTile.ConnectionCardinals.DescribesStraight()? straights[rng.Next(straights.Count)]
+                                                                                        :   corners[rng.Next(corners.Count)];
+                            break;
+                        case 3:
+                            tileToSpawn = threeEntrances[rng.Next(threeEntrances.Count)];
+                            break;
+                        case 4: 
+                            tileToSpawn = fourEntrances[rng.Next(fourEntrances.Count)];
+                            break;           
+                    }
+                    SpawnInstanceTile(gridTile, tileToSpawn);
+                }
+                //Tile has been spawned.
+            }
+            stopwatch.Stop();
+            Debug.Log($"Placed tiles in {stopwatch.ElapsedMilliseconds}ms.");
+        }
+
+        ///<summary>Instantiate the spawnTile at the gridTile. Fill eventual holes with dead ends.</summary>
+        private void SpawnInstanceTile(GridTile gridTile, Tile spawnTile)
+        {
+            Cardinals entranceCardinals = spawnTile.entrancesOnSides;
+            for(int i = 0; i < 4; i++)
+            {
+                //check if the entrances on the tile are on the correct sides. only need to countercheck the required walls for a few edge-cases.
+                if(entranceCardinals.HasFlag(gridTile.ConnectionCardinals) && !entranceCardinals.HasFlag(gridTile.RequiresWalls))
+                {
+                    //spawn the tile.
+                    GameObject spawnedInstance = Instantiate(spawnTile.tileMeshPrefab);
+                    Transform trans = spawnedInstance.transform;
+                    trans.position = ((Vector3)gridTile.gridPosition) * tileSet.TileSize;
+                    transform.Rotate(new Vector3(0, i*90), Space.World);//rotate it clock-wise to fit the current setting.
+                    //set the instance.
+                    gridTile.instance = spawnedInstance;
+                    //stop the loop, go to the next gridTile
+                    Debug.Log("spawned a tile");
+                    break;
+                }
+                //is not correct, rotate
+                entranceCardinals = entranceCardinals.RotateBy90ClockWise();
+            }
+            //tile has been spawned.
+            //check for open entrances.
+            Cardinals openEntrances = entranceCardinals ^ gridTile.ConnectionCardinals;
+            foreach(Cardinals cardinal in openEntrances.Seperate())
+            {
+                //We need to invert this, to get the direction from the dead-end to the room it will connect to.
+                Cardinals invertedCardinal = cardinal.Invert();
+                //spawn a random dead end at that location.
+                Vector3 origin = gridTile.instance.transform.position;
+                Tile deadTile = tileSet.GetDeadEnd(rng);
+                Cardinals tileEntrance = deadTile.entrancesOnSides;
+                for(int i = 0; i < 4; i++)
+                {
+                    if(tileEntrance == invertedCardinal)
+                    {
+                        GameObject instance = Instantiate(deadTile.tileMeshPrefab);
+                        Transform t = instance.transform;
+                        t.position = origin + ((Vector3)cardinal.GetDirection() * tileSet.TileSize);
+                        t.Rotate(new Vector3(0, i*90), Space.World);
+                        break;
+                    }
+                    tileEntrance = tileEntrance.RotateBy90ClockWise();
                 }
             }
         }
