@@ -69,6 +69,7 @@ namespace Celestial.Levels
     ///</summary>
     public enum Cardinals
     {
+        None = 0,
         Undefined = 16,
         ///<summary>North = +z </summary>
         North = 1, 

@@ -28,6 +28,24 @@ namespace Celestial.Levels
             }
         }
 
+        ///<summary>refer to GetDirection</summary>
+        public static Vector3 GetDirectionF(this Cardinals original)
+        {
+            switch(original)
+            {
+                default:
+                    return Vector3.zero;
+                case Cardinals.North:
+                    return Vector3.forward;
+                case Cardinals.East:
+                    return Vector3.right;
+                case Cardinals.South:
+                    return Vector3.back;
+                case Cardinals.West:
+                    return Vector3.left;
+            }
+        }
+
         public static Cardinals RotateBy90ClockWise(this Cardinals original)
         {
             if(original == Cardinals.Undefined) return Cardinals.Undefined;
@@ -71,15 +89,86 @@ namespace Celestial.Levels
             return list;
         }
 
+        public static Cardinals Next(this Cardinals original)
+        {
+            switch(original)
+            {
+                default:
+                    return Cardinals.Undefined;
+                case Cardinals.North:
+                    return Cardinals.East;
+                case Cardinals.East:
+                    return Cardinals.South;
+                case Cardinals.South:
+                    return Cardinals.West;
+                case Cardinals.West:
+                    return Cardinals.Undefined;
+            }
+        }
+
+        //god i hate this, but its better than nesting switch cases.
+        //There may be a better way of doing this with some index mapping and then getting the angle based in the index difference !!!
+        public static float AngleTo(this Cardinals from, Cardinals to)
+        {
+            if(from == Cardinals.North)
+                if(to == Cardinals.North)
+                    return 0f;
+                else if(to == Cardinals.East)
+                    return 90f;
+                else if(to == Cardinals.South)
+                    return 180f;
+                else
+                    return 270f;
+            else if(from == Cardinals.East)
+                if(to == Cardinals.North)
+                    return 270f;
+                else if(to == Cardinals.East)
+                    return 0f;
+                else if(to == Cardinals.South)
+                    return 90f;
+                else
+                    return 180f;
+            else if(from == Cardinals.South)
+                if(to == Cardinals.North)
+                    return 180f;
+                else if(to == Cardinals.East)
+                    return 270f;
+                else if(to == Cardinals.South)
+                    return 0f;
+                else
+                    return 90f;
+            else //West or undefined.
+                if(to == Cardinals.North)
+                    return 90f;
+                else if(to == Cardinals.East)
+                    return 180f;
+                else if(to == Cardinals.South)
+                    return 270f;
+                else
+                    return 0f;
+        }
+
         //just a small helper to figure out whether this is a straight.
         public static bool DescribesStraight(this Cardinals cardinals)
          => cardinals.HasFlag(Cardinals.North | Cardinals.South) || cardinals.HasFlag(Cardinals.East | Cardinals.West);
 
         public static Cardinals Invert(this Cardinals original)
         {
-            //this works because every cardinal has its counterpart two bits to the left/right.
+            //this works because every cardinal has its counterpart two bits to the left/right. //mnope it doesnt work
             //combine the results with an or, and clear the remaining part with AND 31.
-            return original == Cardinals.Undefined? Cardinals.Undefined : (Cardinals)((int)original << 2 | (int)original >> 2 & 0x1111);
+            //return original == Cardinals.Undefined? Cardinals.Undefined : (Cardinals)(((int)original << 2 | (int)original >> 2) & 0x01111);
+            Cardinals output = Cardinals.None;
+            if(original == Cardinals.Undefined)
+                return Cardinals.Undefined;
+            if(original.HasFlag(Cardinals.North))
+                output |= Cardinals.South;
+            if(original.HasFlag(Cardinals.East))
+                output |= Cardinals.West;
+            if(original.HasFlag(Cardinals.South))
+                output |= Cardinals.North;
+            if(original.HasFlag(Cardinals.West))
+                output |= Cardinals.East;
+            return output;
         }
     }
 }

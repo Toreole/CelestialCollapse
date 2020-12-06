@@ -291,40 +291,44 @@ namespace Celestial.Levels
                     GameObject spawnedInstance = Instantiate(spawnTile.tileMeshPrefab);
                     Transform trans = spawnedInstance.transform;
                     trans.position = ((Vector3)gridTile.gridPosition) * tileSet.TileSize;
-                    transform.Rotate(new Vector3(0, i*90), Space.World);//rotate it clock-wise to fit the current setting.
+                    trans.Rotate(0, i*90, 0, Space.World);//rotate it clock-wise to fit the current setting.
+                    //Debug.Log($"Rotate by {i*90}degrees");
                     //set the instance.
                     gridTile.instance = spawnedInstance;
                     //stop the loop, go to the next gridTile
-                    Debug.Log("spawned a tile");
                     break;
                 }
-                //is not correct, rotate
+                //is not correct -> rotate
                 entranceCardinals = entranceCardinals.RotateBy90ClockWise();
             }
             //tile has been spawned.
             //check for open entrances.
             Cardinals openEntrances = entranceCardinals ^ gridTile.ConnectionCardinals;
-            foreach(Cardinals cardinal in openEntrances.Seperate())
+            Cardinals cardinal = Cardinals.North;
+            while(openEntrances > 0)
             {
-                //We need to invert this, to get the direction from the dead-end to the room it will connect to.
-                Cardinals invertedCardinal = cardinal.Invert();
-                //spawn a random dead end at that location.
-                Vector3 origin = gridTile.instance.transform.position;
-                Tile deadTile = tileSet.GetDeadEnd(rng);
-                Cardinals tileEntrance = deadTile.entrancesOnSides;
-                for(int i = 0; i < 4; i++)
+                if(openEntrances.HasFlag(cardinal))
                 {
-                    if(tileEntrance == invertedCardinal)
-                    {
-                        GameObject instance = Instantiate(deadTile.tileMeshPrefab);
-                        Transform t = instance.transform;
-                        t.position = origin + ((Vector3)cardinal.GetDirection() * tileSet.TileSize);
-                        t.Rotate(new Vector3(0, i*90), Space.World);
-                        break;
-                    }
-                    tileEntrance = tileEntrance.RotateBy90ClockWise();
+                    //We need to invert this, to get the direction from the dead-end to the room it will connect to.
+                    Cardinals invertedCardinal = cardinal.Invert();
+                    //spawn a random dead end at that location.
+                    Vector3 origin = gridTile.instance.transform.position;
+                    Tile deadTile = tileSet.GetDeadEnd(rng);
+                    Cardinals tileEntrance = deadTile.entrancesOnSides;
+                    
+                    //since entrancesOnSides ALWAYS has to be a single value, there should be no issue here
+                    float angle = deadTile.entrancesOnSides.AngleTo(invertedCardinal);
+                    GameObject instance = Instantiate(deadTile.tileMeshPrefab);
+                    Debug.Log($"{deadTile.entrancesOnSides}->{invertedCardinal}={angle}", instance);
+                    Transform t = instance.transform;
+                    t.position = origin + ((Vector3)cardinal.GetDirection() * tileSet.TileSize);
+                    t.Rotate(0, angle, 0, Space.World);
+                            
+                    openEntrances -= cardinal;
                 }
+                cardinal = cardinal.Next(); //Advance North -> East -> South -> West.
             }
+            
         }
     }
 }
