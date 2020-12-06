@@ -170,5 +170,13 @@ namespace Celestial.Levels
                 output |= Cardinals.East;
             return output;
         }
+    
+        public static bool HasAnyFlag(this Cardinals original, Cardinals provider)
+        {
+            foreach(var c in provider.Seperate())
+                if(original.HasFlag(c))
+                    return true;
+            return false;
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Celestial.Levels
 {
-    public class GridTile
+    public class GridTile : IEnumerable<TileConnection>
     {
         public Vector3Int gridPosition;
         public TileFlags flags;
@@ -41,6 +41,19 @@ namespace Celestial.Levels
             => connections.Exists(x => x.other == other);
         public bool HasConnectionAtLocation(Vector3Int position)
             => connections.Exists(x => x.other.gridPosition == position);
+        
+        public bool HasConnectionInDirection(Cardinals cardinal)
+            => connectionCardinals.HasFlag(cardinal);
+
+        public IEnumerator<TileConnection> GetEnumerator()
+        {
+            return connections.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return connections.GetEnumerator();
+        }
     }
 
     public class TileConnection

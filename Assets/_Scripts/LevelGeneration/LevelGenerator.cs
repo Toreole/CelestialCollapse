@@ -19,6 +19,8 @@ namespace Celestial.Levels
         //TODO: need a tileset of some sort.
         [SerializeField]
         TileSet tileSet;
+        [SerializeField]
+        UnityEngine.AI.NavMeshSurface navMesh;
 #endregion
 
 #region Runtime_Generation
@@ -32,8 +34,6 @@ namespace Celestial.Levels
 #endregion
 
         //Helper:
-        
-        //readonly:
         static readonly Cardinals[] singleCardinals = {Cardinals.North, Cardinals.East, Cardinals.South, Cardinals.West};
 
         private void Start() 
@@ -41,6 +41,8 @@ namespace Celestial.Levels
             InitializeGeneration();
             GenerateLevelLayout();
             PlaceLevel();
+            //PlaceDebugLevel();
+            navMesh.BuildNavMesh();
         }
 
         ///<summary>Initialize parameters for the actual generation of the level.</summary>
@@ -118,12 +120,14 @@ namespace Celestial.Levels
             //Step 3: mark required walls! (rooms next to each other without connection)
             foreach(GridTile gridTile in tiles)
             {
+                gridTile.RequiresWalls = Cardinals.None; //Reset the requiresWalls to none.
                 foreach(Cardinals cardinal in singleCardinals)
                 {
                     Vector3Int otherPos = gridTile.gridPosition + cardinal.GetDirection();
                     //if the tile exists, but we dont have a connection to it
-                    if(tiles.Exists(x => x.gridPosition == otherPos) && !gridTile.HasConnectionAtLocation(otherPos))
+                    if(tiles.Exists(x => x.gridPosition == otherPos) && !gridTile.HasConnectionInDirection(cardinal))
                         gridTile.RequiresWalls |= cardinal;
+                    
                 }
             }
             stopwatch.Stop();
@@ -244,16 +248,16 @@ namespace Celestial.Levels
                     Tile spawnTile = possibleEntrances[0]; //-----------rng.Next(possibleEntrances.Count)
                     SpawnInstanceTile(gridTile, spawnTile);
                 }
-                else if(flags.HasFlag(TileFlags.Shop))
-                {
+                //else if(flags.HasFlag(TileFlags.Shop))
+                //{
                     //TODO:
-                }
+                //}
                 else //Standard tiles have a lot of things to take care of!
                 {
                     Tile tileToSpawn = null;
                     //room style is how many "entrances" the room has. this can be more than the required amount of connection
                     //but has to be less or equal to the max amount of entrances, as to not conflict with required walls.
-                    int roomStyle = rng.Next(gridTile.ConnectionCount, maxEntrances+1); //+1 since its exclusive max.
+                    int roomStyle = rng.Next(gridTile.ConnectionCount, maxEntrances); //+1 since its exclusive max?
                     switch(roomStyle)
                     {
                         case 1: 
@@ -285,7 +289,7 @@ namespace Celestial.Levels
             for(int i = 0; i < 4; i++)
             {
                 //check if the entrances on the tile are on the correct sides. only need to countercheck the required walls for a few edge-cases.
-                if(entranceCardinals.HasFlag(gridTile.ConnectionCardinals) && !entranceCardinals.HasFlag(gridTile.RequiresWalls))
+                if(entranceCardinals.HasFlag(gridTile.ConnectionCardinals) && !entranceCardinals.HasAnyFlag(gridTile.RequiresWalls))
                 {
                     //spawn the tile.
                     GameObject spawnedInstance = Instantiate(spawnTile.tileMeshPrefab);
@@ -329,6 +333,21 @@ namespace Celestial.Levels
                 cardinal = cardinal.Next(); //Advance North -> East -> South -> West.
             }
             
+        }
+
+        private void PlaceDebugLevel()
+        {
+            foreach(GridTile tile in tiles)
+            {
+                Transform t = GameObject.CreatePrimitive(PrimitiveType.Cube).transform;
+                t.position = tile.gridPosition * 2;
+                foreach(TileConnection con in tile)
+                {
+                    t = GameObject.CreatePrimitive(PrimitiveType.Sphere).transform;
+                    t.position = (Vector3)(tile.gridPosition*2 + con.other.gridPosition*2) * 0.5f;
+                    t.localScale = Vector3.one * 0.5f;
+                }
+            }
         }
     }
 }
