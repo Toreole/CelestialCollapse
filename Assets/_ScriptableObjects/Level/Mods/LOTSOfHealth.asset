@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501dc006cda31054dbf770111663228b, type: 3}
+  m_Name: LOTSOfHealth
+  m_EditorClassIdentifier: 
+  enemyHealth: 1.4
+  descriptor: 'This is just a very
+
+    long description to test out the limits of
+    this system
+
+    i really hope this works correcly
+
+    and if not idk
+
+    ill
+    figure something out at some point
+
+    but not right now
+
+    because im ass
+
+    lmao
+
+    yeet
+
+    s
+
+    s
+
+    s
+
+    sdwd'

@@ -1,0 +1,5 @@
+Upon opening this project in Unity for the first time, you will get an error that reads along the lines of "You are using UnityEngine.Input while the new InputSystem is active". 
+Double click the error to open up the erroring file in your editing program (set in preferences).
+Then delete all lines that contain "Input.[...]". 
+
+I am going to try and find a way to avoid this alltogether, but as of now you will have to manually deal with it.

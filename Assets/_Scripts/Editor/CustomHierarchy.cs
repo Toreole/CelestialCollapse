@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-namespace Minesweeper
+namespace Celestial
 {
     //thanks to Wokarol for sharing the functionality of the toggles hehe.
     [InitializeOnLoad]
@@ -35,7 +35,7 @@ namespace Minesweeper
                     boxRect.y -= 1;
 
                     GUI.color = darkGrey;
-                    GUI.Box(boxRect, go.name.Substring(2));
+                    GUI.Box(boxRect, ""); //go.name.Substring(2)
                 }
                 GUI.color = oldCol;
 
